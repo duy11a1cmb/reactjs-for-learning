@@ -1,0 +1,122 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-family: "Poppins", sans-serif;
+
+}
+
+.player {
+    width: 100%;
+    display: flex;
+    min-height: 300px;
+    position: relative;
+}
+
+.player .dashboard, .play-list {
+    display: block;
+    width: 35%;
+}
+
+.player .play-list {
+    display: block;
+    width: 75%;
+}
+
+.player .dashboard header h4, h2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.player .dashboard header h4 {
+    /*color: #333333;*/
+}
+.player .cd{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cd .cd-thumb {
+    height: 333px;
+    width: 333px;
+    background: url("./assets/img/ngay_tho.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.action .item-action {
+    margin: 3px 15px;
+    cursor: pointer;
+}
+
+.play-list {
+    display: block;
+    overflow: hidden;
+
+}
+
+.play-list .item-song {
+    display: flex;
+    height: 70px;
+    padding: 5px 0 5px 20px;
+    margin-bottom: 5px;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 4px 2px -2px gray;
+    /*background: red;*/
+}
+
+.play-list .item-song .cd-list {
+    width: 60px;
+}
+
+.play-list .item-song .cd-list .cd-thumb {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: blue;
+    background: url("./assets/img/ngay_tho.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.play-list .item-song .detail-song {
+    width: calc(100% - 20%);
+    padding: 0 5px 0 20px;
+
+    margin: auto;
+}
+.play-list .item-song .detail-song .name-song, .author{
+    display: block;
+    justify-content: start;
+    align-items: center;
+    background: pink;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.play-list .item-song .more-action {
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: gray;
+}
