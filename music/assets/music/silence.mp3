@@ -1,0 +1,13 @@
+export default {
+data(){
+    return {
+        music: require('@/assets/music/silence.mp3')
+    }
+},
+methods:{
+    playMusic(){
+       const sound = new Audio(this.music)
+       sound.play()
+    }
+}
+}
