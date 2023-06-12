@@ -7,12 +7,12 @@
 
 <body>
 
-<div class="player">
+<div class="player" id="player">
   <!-- dashboard -->
   <div class="dashboard">
     <!-- header -->
     <header>
-      <h4>Now playing:</h4>
+      <h4 style="color: purple">Now playing:</h4>
       <h2>song</h2>
     </header>
 
@@ -20,69 +20,46 @@
     <div class="cd">
       <div class="cd-thumb"></div>
     </div>
+    <div class="containerProgress">
+      <input id="inputRange" class="inputRange" type="range" value="0" min="0"/>
+      <span class="detail-progress"></span>
+    </div>
 
     <!-- ui action -->
     <div class="action">
-      <div class="item-action">
-        <i class="fa-sharp fa-solid fa-rotate-right" style="font-size: 45px"></i>
+      <div class="item-action btn-loop">
+        <i class="fa-sharp fa-solid fa-rotate-right" style="font-size: 45px;color: #ffa500;"></i>
       </div>
-      <div class="item-action">
-        <i class="fa-solid fa-backward-step" style="font-size: 45px"></i>
+      <div class="item-action btn-pre">
+        <i class="fa-solid fa-backward-step" style="font-size: 45px;color: #ffa500;"></i>
       </div>
-      <div class="item-action">
-        <i class="fa-solid fa-circle-play" style="font-size: 45px"></i>
+      <div class="item-action btn-play">
+        <i class="fa-solid fa-circle-play" style="font-size: 45px;color: #ffa500;"></i>
       </div>
-      <div class="item-action">
-        <i class="fa-solid fa-forward-step" style="font-size: 45px"></i>
+      <div class="item-action btn-next">
+        <i class="fa-solid fa-forward-step" style="font-size: 45px;color: #ffa500;"></i>
       </div>
-      <div class="item-action">
-        <i class="fa-solid fa-shuffle" style="font-size: 45px"></i>
+      <div class="item-action btn-random">
+        <i class="fa-solid fa-shuffle" style="font-size: 45px;color: #ffa500;"></i>
       </div>
-
-
-      <!--      <i class="fa-solid fa-circle-pause" style="font-size: 45px"></i>-->
     </div>
   </div>
-  <div class="play-list">
-    <div class="item-song">
-      <div class="cd-list">
-        <div class="cd-thumb"></div>
-      </div>
-      <div class="detail-song">
-        <h2 class="name-song">
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        </h2>
-        <h4 class="author">dasdas</h4>
-      </div>
-      <div class="more-action">
-        <i class="fa-solid fa-ellipsis" style="font-size: 24px"></i>
-      </div>
-    </div>
-
-
-    <div class="item-song">
-      <div class="cd-list">
-        <div class="cd-thumb"></div>
-      </div>
-      <div class="detail-song">
-        <h2 class="name-song">
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        </h2>
-        <h4 class="author">dasdas</h4>
-      </div>
-      <div class="more-action">
-        <i class="fa-solid fa-ellipsis" style="font-size: 24px"></i>
-      </div>
-    </div>
+  <div class="play-list"></div>
+  <div class="background-container">
+    <section>
+      <div class='air air1'></div>
+      <div class='air air2'></div>
+      <div class='air air3'></div>
+      <div class='air air4'></div>
+    </section>
   </div>
 
 </div>
 
-<script type="module" src="main.js"></script>
+<audio autoplay id="audio"></audio>
+
+<script type="module" src="./main.js"></script>
+
 
 </body>
 </html>
