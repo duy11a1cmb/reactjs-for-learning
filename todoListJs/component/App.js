@@ -1,9 +1,17 @@
 import html from "../core.js";
 
+import Header from "./Header.js";
+import TodoList from "./TodoList.js";
+import Footer from "./Footer.js";
 
 function App() {
   return html`
-    <h1>Hello my App</h1>
+    <section class="todoapp">
+      ${Header()}
+      ${TodoList()}
+      ${Footer()}
+    </section>
+
   `
 }
 
