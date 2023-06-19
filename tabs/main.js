@@ -32,12 +32,38 @@ function handleAnimationLineInTab() {
   line.style.width = this.offsetWidth + 'px';
 }
 
+
 function init() {
   line.style.left = tabActive.offsetLeft + 'px';
   line.style.width = tabActive.offsetWidth + 'px';
 
   handleOnClickTabs();
 }
+
+let count = 0;
+let DefaultAmountMoneyPerRound = 40000;
+const ArrToTotal = [];
+
+calculatorTx(DefaultAmountMoneyPerRound, 9, 5);
+
+function calculatorTx(amountMoneyPerRound, amountRoundRisk, PercentTax) {
+  amountRoundRisk--;
+  count++;
+
+  if (amountRoundRisk >= 0) {
+    console.group(`Tài Xỉu Avatar round ${count}:`);
+    ArrToTotal.push(amountMoneyPerRound);
+    console.log(amountMoneyPerRound);
+    console.log("Total amount of Money:", Number(ArrToTotal.reduce((acc, cur) => acc += cur)))
+    amountMoneyPerRound = Math.floor((amountMoneyPerRound * 2 + DefaultAmountMoneyPerRound) +
+      ((amountMoneyPerRound * 2 + DefaultAmountMoneyPerRound) / 100 * PercentTax))
+    calculatorTx(amountMoneyPerRound, amountRoundRisk, PercentTax);
+  }
+  console.groupEnd();
+}
+
+console.log("Amount of Money make per hour:", 35 * 40000);
+
 
 init();
 
