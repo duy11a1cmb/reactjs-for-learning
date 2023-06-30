@@ -41,29 +41,45 @@ function init() {
 }
 
 let count = 0;
-let DefaultAmountMoneyPerRound = 40000;
+let defaultAmountMoneyPerRound = 175000;
 const ArrToTotal = [];
-
-calculatorTx(DefaultAmountMoneyPerRound, 9, 5);
-
-function calculatorTx(amountMoneyPerRound, amountRoundRisk, PercentTax) {
+(function calculatorTx(amountMoneyPerRound, amountRoundRisk, PercentTax, prevTotalMoney) {
   amountRoundRisk--;
   count++;
-
   if (amountRoundRisk >= 0) {
-    console.group(`Tài Xỉu Avatar round ${count}:`);
     ArrToTotal.push(amountMoneyPerRound);
-    console.log(amountMoneyPerRound);
-    console.log("Total amount of Money:", Number(ArrToTotal.reduce((acc, cur) => acc += cur)))
-    amountMoneyPerRound = Math.floor((amountMoneyPerRound * 2 + DefaultAmountMoneyPerRound) +
-      ((amountMoneyPerRound * 2 + DefaultAmountMoneyPerRound) / 100 * PercentTax))
-    calculatorTx(amountMoneyPerRound, amountRoundRisk, PercentTax);
+    prevTotalMoney = ArrToTotal.reduce((acc, cur) => acc += cur) - amountMoneyPerRound;
+    let moneyTax = amountMoneyPerRound / 100 * 5;
+    console.group(`Tài Xỉu Avatar round ${count}:`);
+    console.log('Place a bet:', amountMoneyPerRound.toLocaleString('it-IT', {
+      style: 'currency',
+      currency: 'VND'
+    }).replace(/VND/g, 'xu'));
+    console.log('You win: ', (amountMoneyPerRound - moneyTax).toLocaleString('it-IT', {
+      style: 'currency',
+      currency: 'VND'
+    }).replace(/VND/g, 'xu'));
+    console.log('You make a profit: ', ((amountMoneyPerRound - moneyTax) - prevTotalMoney)
+      .toLocaleString('it-IT', {
+        style: 'currency',
+        currency: 'VND'
+      }).replace(/VND/g, 'xu'));
+    console.log("Total amount of Money:",
+      Number(ArrToTotal.reduce((acc, cur) => acc += cur)).toLocaleString('it-IT', {
+        style: 'currency',
+        currency: 'VND'
+      }).replace(/VND/g, 'xu'));
+    amountMoneyPerRound = Math.floor((amountMoneyPerRound * 2 + defaultAmountMoneyPerRound) +
+      ((amountMoneyPerRound * 2 + defaultAmountMoneyPerRound) / 100 * PercentTax))
+    calculatorTx(amountMoneyPerRound, amountRoundRisk, PercentTax, prevTotalMoney);
   }
   console.groupEnd();
-}
-
-console.log("Amount of Money make per hour:", 35 * 40000);
-
+})(defaultAmountMoneyPerRound, 9, 5, 0)
+console.log("Amount of Money make per hour:", (35 * defaultAmountMoneyPerRound / 100 * 95).toLocaleString('it-IT', {
+  style: 'currency',
+  currency: 'VND'
+}).replace(/VND/g, 'xu'));
+console.log(ArrToTotal)
 
 init();
 
